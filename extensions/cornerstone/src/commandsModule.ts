@@ -57,20 +57,15 @@ function commandsModule({
   }
 
   const actions = {
-    /**
-     * Generates the selector props for the context menu, specific to
-     * the cornerstone viewport, and then runs the context menu.
-     */
+
     showCornerstoneContextMenu: options => {
       const element = _getActiveViewportEnabledElement()?.viewport?.element;
 
       const optionsToUse = { ...options, element };
       const { useSelectedAnnotation, nearbyToolData, event } = optionsToUse;
 
-      // This code is used to invoke the context menu via keyboard shortcuts
       if (useSelectedAnnotation && !nearbyToolData) {
         const firstAnnotationSelected = getFirstAnnotationSelected(element);
-        // filter by allowed selected tools from config property (if there is any)
         const isToolAllowed =
           !optionsToUse.allowedSelectedTools ||
           optionsToUse.allowedSelectedTools.includes(firstAnnotationSelected?.metadata?.toolName);

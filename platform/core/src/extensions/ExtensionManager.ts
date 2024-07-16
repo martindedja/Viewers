@@ -449,6 +449,7 @@ export default class ExtensionManager extends PubSubService {
 
   _initHangingProtocolsModule = (extensionModule, extensionId) => {
     const { hangingProtocolService } = this._servicesManager.services;
+    console.log('_initHangingProtocolsModule', typeof extensionModule);
     extensionModule.forEach(({ name, protocol }) => {
       if (protocol) {
         // Only auto-register if protocol specified, otherwise let mode register
@@ -465,6 +466,7 @@ export default class ExtensionManager extends PubSubService {
     // check if the toolbar module has a handler function for evaluation of
     // the toolbar button state
     const { toolbarService } = this._servicesManager.services;
+    console.log('_initToolbarModule', typeof extensionModule);
     extensionModule.forEach(toolbarButton => {
       if (toolbarButton.evaluate) {
         toolbarService.registerEvaluateFunction(toolbarButton.name, toolbarButton.evaluate);
@@ -562,10 +564,11 @@ export default class ExtensionManager extends PubSubService {
     extensionId,
     dataSources: Array<DataSourceDefinition> = []
   ): void {
+    console.log('_initDataSourcesModule 1', typeof extensionModule);
     extensionModule.forEach(element => {
       this.modulesMap[`${extensionId}.${MODULE_TYPES.DATA_SOURCE}.${element.name}`] = element;
     });
-
+    console.log('_initDataSourcesModule 2', typeof extensionModule);
     extensionModule.forEach(element => {
       const namespace = `${extensionId}.${MODULE_TYPES.DATA_SOURCE}.${element.name}`;
 

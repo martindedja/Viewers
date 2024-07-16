@@ -70,6 +70,10 @@ module.exports = (env, argv) => {
         // Hoisted Yarn Workspace Modules
         path.resolve(__dirname, '../../../node_modules'),
         SRC_DIR,
+        path.resolve(__dirname, 'custom_template/modes/custom-mode/node_modules'),
+        path.resolve(__dirname, 'custom_template/extensions/custom-extension/node_modules'),
+        path.resolve(__dirname, 'custom_template/modes/custom-mode/node_modules'),
+        path.resolve(__dirname, 'custom_template/extensions/custom-extension/node_modules'),
       ],
     },
     plugins: [
