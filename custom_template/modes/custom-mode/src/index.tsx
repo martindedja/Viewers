@@ -3,14 +3,11 @@ import { id } from './id';
 import initToolGroups from './initToolGroups';
 import toolbarButtons from './toolbarButtons';
 
-const NON_IMAGE_MODALITIES = ['SM', 'ECG', 'SR', 'SEG', 'RTSTRUCT'];
-
 const ohif = {
   layout: '@ohif/extension-default.layoutTemplateModule.viewerLayout',
   sopClassHandler: '@ohif/extension-default.sopClassHandlerModule.stack',
   thumbnailList: '@ohif/extension-default.panelModule.seriesList',
 };
-
 
 const tracked = {
   measurements: '@ohif/extension-measurement-tracking.panelModule.trackedMeasurements',
@@ -48,7 +45,6 @@ const custom = {
   thumbnailList: 'custom-extension.panelModule.customSeriesList',
 };
 const extensionDependencies = {
-  // Can derive the versions at least process.env.from npm_package_version
   '@ohif/extension-default': '^3.0.0',
   '@ohif/extension-cornerstone': '^3.0.0',
   '@ohif/extension-measurement-tracking': '^3.0.0',
@@ -58,7 +54,6 @@ const extensionDependencies = {
   '@ohif/extension-dicom-pdf': '^3.0.1',
   '@ohif/extension-dicom-video': '^3.0.1',
 };
-
 
 function modeFactory({ modeConfiguration }) {
   return {
@@ -191,7 +186,7 @@ function modeFactory({ modeConfiguration }) {
       dicompdf.sopClassHandler,
       dicomsr.sopClassHandler,
       dicomRT.sopClassHandler,
-    ],
+    ] /** hotkeys for mode */,
     hotkeys: [...hotkeys.defaults.hotkeyBindings],
   };
 }
