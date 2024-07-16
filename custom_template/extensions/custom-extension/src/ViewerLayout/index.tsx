@@ -15,7 +15,7 @@ function ViewerLayout({
   ViewportGridComp,
   leftPanelClosed = false,
   rightPanelClosed = false,
-}: withAppTypes): React.FunctionComponent {
+}: withAppTypes): React.ReactNode {
   const [appConfig] = useAppConfig();
 
   const { panelService, hangingProtocolService } = servicesManager.services;
@@ -31,11 +31,6 @@ function ViewerLayout({
   const [leftPanelClosedState, setLeftPanelClosed] = useState(leftPanelClosed);
   const [rightPanelClosedState, setRightPanelClosed] = useState(rightPanelClosed);
 
-  /**
-   * Set body classes (tailwindcss) that don't allow vertical
-   * or horizontal overflow (no scrolling). Also guarantee window
-   * is sized to our viewport.
-   */
   useEffect(() => {
     document.body.classList.add('bg-black');
     document.body.classList.add('overflow-hidden');

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
-
 import {
   ErrorBoundary,
   UserPreferences,
@@ -110,6 +109,7 @@ function ViewerHeader({
       },
     });
   }
+  //  get active file name
   useEffect(() => {
     if (!grideState) {
       return;

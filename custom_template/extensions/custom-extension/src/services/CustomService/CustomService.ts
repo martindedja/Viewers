@@ -1,9 +1,6 @@
-
 import { Types as OhifTypes, pubSubServiceInterface } from '@ohif/core';
 
-const EVENTS = {
-};
-
+const EVENTS = {};
 
 export default class CustomService {
   public static REGISTRATION = {
@@ -19,7 +16,7 @@ export default class CustomService {
   EVENTS: { [key: string]: string };
   activeToolbarButton;
   constructor(servicesManager: AppTypes.ServicesManager) {
-    this.servicesManager = servicesManager
+    this.servicesManager = servicesManager;
     this.listeners = {};
     this.EVENTS = EVENTS;
     Object.assign(this, pubSubServiceInterface);
@@ -31,5 +28,4 @@ export default class CustomService {
   public setToolbarButtonActive(buttonId) {
     this.activeToolbarButton = buttonId;
   }
-
 }

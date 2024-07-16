@@ -1,2 +1,2 @@
-import CustomService from "./customService";
+import CustomService from './customService';
 export default CustomService;
